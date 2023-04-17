@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.scribble</groupId>
+	<artifactId>ScrcibbleShop</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>ScribbleShop</name>
+	<!-- FIXME change it to the project's website -->
+	<url>http://www.example.com</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<spring.version>5.3.26</spring.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- { Spring Framework } -->
+		<dependency>
+			<!-- Provides the Spring MVC framework for building web applications -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides Spring Security for web applications -->
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.7.7</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides configuration for Spring Security -->
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.7.7</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides Spring ORM functionality for working with databases -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides Spring Data JPA functionality for working with
+			databases 
+				using JPA -->
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>2.4.7</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides security tags for JSP pages -->
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.6.1</version>
+		</dependency>
+
+
+		<!-- { Database Connectivity } -->
+		<dependency>
+			<!-- MySQL JDBC driver for connecting to MySQL databases -->
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.0.32</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides ORM functionality using the Hibernate framework -->
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.6.15.Final</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides validation functionality using Hibernate Validator -->
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.4.3.Final</version>
+		</dependency>
+
+		<dependency>
+			<!-- High-performance JDBC connection pool for managing database
+			connections -->
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-hikaricp</artifactId>
+			<version>5.6.15.Final</version>
+		</dependency>
+
+		<!-- { Web Dependencies } -->
+		<dependency>
+			<!-- Provides the Servlet API for handling HTTP requests and
+			responses -->
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<!-- Provides the JSP API for rendering JavaServer Pages -->
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
+			<version>1.2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>5.0.0-M2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<!-- Provides the JSTL standard library for JSP pages -->
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<!-- { Logging and Testing } -->
+		<dependency>
+			<!-- Provides a logging API for the application -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.32</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides an implementation of the SLF4J API for logging -->
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+
+		<dependency>
+			<!-- Provides the JUnit testing framework for unit testing -->
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<!-- The name of the WAR file that will be generated -->
+
+
+		<pluginManagement>
+			<!-- This section configures various plugins that are used during
+			the 
+				build process -->
+			<plugins>
+
+				<plugin>
+					<!-- This plugin removes the target directory and all
+					generated files -->
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+
+				<plugin>
+					<!-- This plugin copies resources (such as properties files)
+					to the 
+						target directory -->
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+
+				<plugin>
+					<!-- This plugin compiles Java source code -->
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+				</plugin>
+
+				<plugin>
+					<!-- This plugin runs unit tests -->
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.1</version>
+				</plugin>
+
+				<plugin>
+					<!-- This plugin generates a WAR file (a deployable web
+					archive) -->
+					<artifactId>maven-war-plugin</artifactId>
+					<version>3.2.2</version>
+
+					<configuration>
+						<!-- Specifies the directory containing web resources -->
+						<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<!-- This plugin installs the generated artifact to the
+					local repository -->
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+
+				<plugin>
+					<!-- This plugin deploys the generated artifact to a remote
+					repository -->
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+	</build>
+
+
+</project>
