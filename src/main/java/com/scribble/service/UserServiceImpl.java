@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
 			throw new ServiceException("Error while fetching all users", e);
 		}
 	}
+	
 
 	@Override
 	public Optional<User> getUserByUsername(String username) throws ServiceException {

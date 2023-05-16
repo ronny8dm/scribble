@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.scribble.entity.Item;
+import com.scribble.exception.ServiceException;
 
 public interface ItemService {
 	
@@ -16,4 +17,6 @@ public interface ItemService {
     public void updateItem(Item item);
     
     public void deleteItem(Long id);
+    
+    List<Item> searchItems(String keyword) throws ServiceException;
 }

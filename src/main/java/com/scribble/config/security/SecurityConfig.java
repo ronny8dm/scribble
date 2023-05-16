@@ -3,6 +3,7 @@ package com.scribble.config.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -28,32 +29,35 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.authorizeRequests()
-					.antMatchers("/login", "/signup", "/resources/**").permitAll()
-					.anyRequest().authenticated()
-				.and()
-				.formLogin()
-					.loginPage("/login")
-					.defaultSuccessUrl("/dashboard")
-					.failureUrl("/login?error")
-					.usernameParameter("username")
-					.passwordParameter("password")
-				.and()
-				.logout()
-				 	.logoutUrl("/logout")
-					.logoutSuccessUrl("/login?logout")
-				.and()
-				.sessionManagement(session -> session
-						.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-						.invalidSessionUrl("/login")
-						.maximumSessions(1)
-			            .maxSessionsPreventsLogin(true)
-			            )
-				.build();
-	}
+                .antMatchers("/login", "/signup", "/resources/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/items/save").authenticated()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/dashboard")
+                .failureUrl("/login?error")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .and()
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                        .invalidSessionUrl("/login")
+                        .maximumSessions(1)
+                        .maxSessionsPreventsLogin(true)
+                )
+                
+                .build();
+    }
 	
 	
 	@Bean
-	public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder, UserDetailsService userDetailService) 
+	public AuthenticationManager authenticationManager(HttpSecurity http,
+			BCryptPasswordEncoder bCryptPasswordEncoder, UserDetailsService userDetailService) 
 	  throws Exception {
 	    return http.getSharedObject(AuthenticationManagerBuilder.class)
 	      .userDetailsService(customUserDetailsService)

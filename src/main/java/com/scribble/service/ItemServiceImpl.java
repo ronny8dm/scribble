@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.scribble.entity.Item;
+import com.scribble.exception.ServiceException;
 import com.scribble.repository.ItemRepository;
 
 @Service
@@ -38,6 +39,16 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public void deleteItem(Long id) {
 		itemRepo.deleteById(id);
+	}
+	
+	@Override
+	public List<Item> searchItems(String keyword) throws ServiceException {
+	    try {
+	        return itemRepo.searchItems(keyword);
+	        
+	    } catch (Exception e) {
+	        throw new ServiceException("Error while searching items", e);
+	    }
 	}
 
 }
